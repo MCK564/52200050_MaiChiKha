@@ -1,0 +1,11 @@
+.content-expanded {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .content-collapsed {
+    flex: 1;
+    overflow-y: auto;
+    margin-left: 250px; /* Adjust the margin to account for the sidebar width */
+  }
+  

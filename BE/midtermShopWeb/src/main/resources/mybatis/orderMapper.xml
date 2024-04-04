@@ -1,0 +1,25 @@
+<mapper namespace="com.java.midtermShopWeb.mappers.OrdersMapper">
+    <select id="findOrderByParams" resultType="com.java.midtermShopWeb.models.Order">
+        SELECT * FROM orders WHERE 1=1
+        <where>
+            <if test="conditions != null">
+
+                <foreach collection="conditions.entrySet()" item="entry" separator="AND">
+                    <choose>
+                        <when test="entry.value != null">
+                            <if test="entry.key == 'email'">
+                                email = #{entry.value}
+                            </if>
+                            <if test="entry.key == 'phoneNumber'">
+                                phone_number = #{entry.value}
+                            </if>
+                            <if test="entry.key == 'address'">
+                                address = #{entry.value}
+                            </if>
+                        </when>
+                    </choose>
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>
